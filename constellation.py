@@ -101,19 +101,19 @@ plt.show()
 # Render your visualization. (hint `plt.show()`.)
 # 
 
-# In[81]:
+# In[110]:
 
 
 fig_3d = plt.figure()
-fig_3d.add_subplot(1, 1, 1, projection="3d")
+ax = fig_3d.add_subplot(1, 1, 1, projection="3d")
 
-#constellation3d = plt.scatter(x, y, z, marker = "*", color = 'red') #Why doesn't this code work? (All points fall on 0 on the Z axis, as if Z was not defined. However, if I use "plot" instead of "scatter", the Z coordinates are plotted correctly. Also, why doesn't "marker" parameter work with scatter plot (put works with line plot)?
-constellation3d = plt.plot(x, y, z, marker = "*", markerfacecolor="yellow", linewidth = 0)  #Z coordinates are recognized if plotting as a 3d line chart
+constellation3d = plt.scatter(x, y, z, marker = "*") #Why doesn't this code work? (All points fall on Z=0; "marker" has no effect.)
+constellation3d = plt.plot(x, y, z, marker = "*", markerfacecolor = "yellow", linewidth = 0)  #This code produces the desired results.
 
 plt.title("Orion Star Map (3D)")
-plt.xlabel('X')
-plt.ylabel('Y')
-#fig_3d.set_zlabel('Z')  #How do I label the Z axis?
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
 plt.show()
 
 
